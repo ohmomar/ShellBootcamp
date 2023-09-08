@@ -11,6 +11,12 @@
 		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
+		"cdcdbservice_connectionString": {
+			"value": ""
+		},
+		"cdcservice_connectionString": {
+			"value": ""
+		},
 		"RestService_properties_typeProperties_url": {
 			"value": "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=d63205a6e0c17390854c33f41773e832"
 		}

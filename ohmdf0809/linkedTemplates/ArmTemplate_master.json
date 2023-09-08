@@ -15,6 +15,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
+		"cdcdbservice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'cdcdbservice'"
+		},
+		"cdcservice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'cdcservice'"
+		},
 		"RestService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=d63205a6e0c17390854c33f41773e832"
@@ -51,6 +59,12 @@
 					},
 					"AzureSqlDatabase1_connectionString": {
 						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"cdcdbservice_connectionString": {
+						"value": "[parameters('cdcdbservice_connectionString')]"
+					},
+					"cdcservice_connectionString": {
+						"value": "[parameters('cdcservice_connectionString')]"
 					},
 					"RestService_properties_typeProperties_url": {
 						"value": "[parameters('RestService_properties_typeProperties_url')]"
