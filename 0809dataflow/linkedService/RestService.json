@@ -1,0 +1,13 @@
+{
+	"name": "RestService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=d63205a6e0c17390854c33f41773e832",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
