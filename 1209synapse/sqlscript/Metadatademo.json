@@ -1,0 +1,17 @@
+{
+	"name": "Metadatademo",
+	"properties": {
+		"content": {
+			"query": "--creating master key\ncreate master key\n\n--create database scoped credentials\ncreate database scoped CREDENTIAL[sqlondemand]\nwith IDENTITY='SHARED ACCESS SIGNATURE',\nSECRET='?sv=2022-11-02&ss=b&srt=sco&sp=rwdlacyx&se=2023-09-12T16:11:33Z&st=2023-09-12T08:11:33Z&spr=https&sig=PZvXpSgK7djYhHRgfCxBVhP%2FiSIbjB5QRgb1A8PNEaA%3D'\n\n--create external data source\ncreate external data source SqlOnDemandDemo \nWITH\n(\n    location='https://datalake1209oo.blob.core.windows.net',\n    CREDENTIAL=[sqlondemand]\n)\n\n--Create external file format\ncreate external FILE FORMAT QuotedCsvWithHeaderFormat1\nWITH\n(\n    FORMAT_TYPE=DELIMITEDTEXT,\n    FORMAT_OPTIONS(FIELD_TERMINATOR=',',STRING_DELIMITER='\"',First_row=2)\n)\n--create external table\ncreate external table empTableInfo1\n(FirstName varchar(20),LastName varchar(20))\nwith\n(\n    LOCATION='dlsg/tempfolder/inputEmpFinal.csv',\n    DATA_SOURCE=SqlOnDemandDemo,\n    FILE_FORMAT=QuotedCsvWithHeaderFormat1\n)\n\ndrop external table empTableInfo\n--testing table\nSELECT * from empTableInfo1\n\n--create view\ncreate view viewEmployee1\nAS\nSELECT * from empTableInfo1\n\nSELECT * from viewEmployee1\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "demodbsqlpool",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
