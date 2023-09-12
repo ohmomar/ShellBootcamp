@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://datalake1209oo.dfs.core.windows.net/dlsg/tempfolder/Drilling_Dataset.csv',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\n        FIRSTROW=2\n    ) WITH\n    (\n        RigID int 1,\n        DrillingDepth int 2,\n        DrillingSpeed int 3,\n        [Location] VARCHAR(20) 4,\n        [Date] DATE 5\n    )\n    as [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
