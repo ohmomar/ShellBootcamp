@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://datalake1209oo.dfs.core.windows.net/dlsg/tempfolder/ecdc_cases.csv',\n        FORMAT = 'CSV',\n        PARSER_VERSION = '2.0',\n        FIRSTROW=2\n    ) WITH\n    (\n        date_rep date 1,\n        [year] int 4,\n        cases int 5,\n        geo_id char(5) 8\n    )\n    AS [result]\n\ncreate database demodbsqlpool\n\ncreate external data source covid\nwith ( location='https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/')\n\nselect top 10 *\nfrom openrowset(\nbulk 'latest/ecdc_cases.csv',\nDATA_SOURCE='covid',\nformat = 'csv',\nPARSER_VERSION='2.0',\nFIRSTROW=2\n) WITH\n    (\n        date_rep date 1,\n        cases int 5,\n        geo_id char(5) 8\n    )\n    AS [result]\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "demodbsqlpool",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
