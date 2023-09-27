@@ -47,8 +47,19 @@ df1.write.mode("overwrite").option("path","dbfs:/mnt/2709storageaccount/raw/json
 
 # COMMAND ----------
 
+df1.write.mode("overwrite")\
+.option("path","dbfs:/mnt/2709storageaccount/raw/json/ohm/json_parquet")\
+.format(parquet)\
+.saveAsTable("json.bronzetabl_parquet")
+
+# COMMAND ----------
+
 # MAGIC %sql
 # MAGIC select count(*) from json.bronzetable
+
+# COMMAND ----------
+
+
 
 # COMMAND ----------
 
