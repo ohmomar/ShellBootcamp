@@ -39,7 +39,7 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Users/shellunext_1693422065148@npunext.onmicrosoft.com"
+							"notebookPath": "/Users/shellunext_1693422065148@npunext.onmicrosoft.com/2709etljson"
 						},
 						"linkedServiceName": {
 							"referenceName": "LSAzureDatabricks",
