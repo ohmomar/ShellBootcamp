@@ -15,4 +15,8 @@ dbutils.widgets.get("database")
 
 # COMMAND ----------
 
+dbutils.widgets.remove("database")
+
+# COMMAND ----------
+
 
